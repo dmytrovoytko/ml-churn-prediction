@@ -1,0 +1,167 @@
+ Loaded 4000 records.
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 4000 entries, 0 to 3999
+Data columns (total 14 columns):
+ #   Column                             Non-Null Count  Dtype  
+---  ------                             --------------  -----  
+ 0   gender                             4000 non-null   int64  
+ 1   Near_Location                      4000 non-null   int64  
+ 2   Partner                            4000 non-null   int64  
+ 3   Promo_friends                      4000 non-null   int64  
+ 4   Phone                              4000 non-null   int64  
+ 5   Contract_period                    4000 non-null   int64  
+ 6   Group_visits                       4000 non-null   int64  
+ 7   Age                                4000 non-null   int64  
+ 8   Avg_additional_charges_total       4000 non-null   float64
+ 9   Month_to_end_contract              4000 non-null   float64
+ 10  Lifetime                           4000 non-null   int64  
+ 11  Avg_class_frequency_total          4000 non-null   float64
+ 12  Avg_class_frequency_current_month  4000 non-null   float64
+ 13  Churn                              4000 non-null   int64  
+dtypes: float64(4), int64(10)
+memory usage: 437.6 KB
+
+Dataset head(3):
+                                            0           1           2
+gender                              1.000000    0.000000    0.000000
+Near_Location                       1.000000    1.000000    1.000000
+Partner                             1.000000    0.000000    1.000000
+Promo_friends                       1.000000    0.000000    0.000000
+Phone                               0.000000    1.000000    1.000000
+Contract_period                     6.000000   12.000000    1.000000
+Group_visits                        1.000000    1.000000    0.000000
+Age                                29.000000   31.000000   28.000000
+Avg_additional_charges_total       14.227470  113.202938  129.448479
+Month_to_end_contract               5.000000   12.000000    1.000000
+Lifetime                            3.000000    7.000000    2.000000
+Avg_class_frequency_total           0.020398    1.922936    1.859098
+Avg_class_frequency_current_month   0.000000    1.910244    1.736502
+Churn                               0.000000    0.000000    0.000000
+
+Preprocessing data...
+
+No categorical columns.
+ Checking columns with nulls: []
+
+Final number of records: 4000 / 4000 = 100.00%
+
+
+Updated Correlation to churn:
+lifetime                            -0.438220
+avg_class_frequency_current_month   -0.412348
+age                                 -0.404735
+contract_period                     -0.389984
+month_to_end_contract               -0.381393
+avg_class_frequency_total           -0.249715
+avg_additional_charges_total        -0.198697
+group_visits                        -0.175325
+promo_friends                       -0.162233
+partner                             -0.157986
+near_location                       -0.128098
+phone                               -0.001177
+gender                               0.000708
+churn                                1.000000
+
+>>>>> Starting GridSearchCV LogisticRegression...
+Fitting 2 folds for each of 30 candidates, totalling 60 fits
+
+HPO grid search: make_scorer(roc_auc_score, response_method='predict_proba', multi_class=ovr), 2 splits
+Best parameters: {'C': 1.4, 'max_iter': 50}
+
+================
+LogisticRegression, optimized for roc_auc_ovr
+              precision    recall  f1-score   support
+
+           0      0.934     0.968     0.951       598
+           1      0.894     0.797     0.843       202
+
+    accuracy                          0.925       800
+   macro avg      0.914     0.883     0.897       800
+weighted avg      0.924     0.925     0.924       800
+
+[[579  19]
+ [ 41 161]]
+ accuracy: 0.925
+ balanced accuracy: 0.883
+ roc_auc_ovr best_score_: 0.975
+ Finished in 1.937 second(s)
+
+
+>>>>> Starting GridSearchCV DecisionTreeClassifier...
+Fitting 2 folds for each of 63 candidates, totalling 126 fits
+
+HPO grid search: make_scorer(roc_auc_score, response_method='predict_proba', multi_class=ovr), 2 splits
+Best parameters: {'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2}
+
+================
+DecisionTreeClassifier, optimized for roc_auc_ovr
+              precision    recall  f1-score   support
+
+           0      0.901     0.945     0.922       598
+           1      0.809     0.693     0.747       202
+
+    accuracy                          0.881       800
+   macro avg      0.855     0.819     0.835       800
+weighted avg      0.878     0.881     0.878       800
+
+[[565  33]
+ [ 62 140]]
+ accuracy: 0.881
+ balanced accuracy: 0.819
+ roc_auc_ovr best_score_: 0.924
+DecisionTreeClassifier feature_importances_ [('lifetime', 0.5123700362634527), ('month_to_end_contract', 0.1602593408280512), ('avg_class_frequency_current_month', 0.1366187653879427), ('age', 0.11076769351855814), ('avg_class_frequency_total', 0.07056176451506908), ('avg_additional_charges_total', 0.005709560461072738), ('contract_period', 0.0024638175534776353), ('promo_friends', 0.001071569554200247), ('phone', 0.0001774519181755518), ('gender', 0.0), ('near_location', 0.0), ('partner', 0.0), ('group_visits', 0.0)]
+ Finished in 0.399 second(s)
+
+
+>>>>> Starting GridSearchCV RandomForestClassifier...
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+
+HPO grid search: make_scorer(roc_auc_score, response_method='predict_proba', multi_class=ovr), 2 splits
+Best parameters: {'max_depth': None, 'n_estimators': 200}
+
+================
+RandomForestClassifier, optimized for roc_auc_ovr
+              precision    recall  f1-score   support
+
+           0      0.932     0.957     0.944       598
+           1      0.860     0.792     0.825       202
+
+    accuracy                          0.915       800
+   macro avg      0.896     0.874     0.884       800
+weighted avg      0.914     0.915     0.914       800
+
+[[572  26]
+ [ 42 160]]
+ accuracy: 0.915
+ balanced accuracy: 0.874
+ roc_auc_ovr best_score_: 0.969
+RandomForestClassifier feature_importances_ [('lifetime', 0.27698838996957376), ('avg_class_frequency_current_month', 0.17358035523748414), ('avg_class_frequency_total', 0.13059232764546072), ('age', 0.12877142441676973), ('avg_additional_charges_total', 0.08603065630582445), ('month_to_end_contract', 0.07262567617283212), ('contract_period', 0.06602939753555674), ('group_visits', 0.014815990416864253), ('promo_friends', 0.011526449594906153), ('gender', 0.011358829946767927), ('partner', 0.010688387221120352), ('near_location', 0.010252701970989684), ('phone', 0.006739413565849998)]
+ Finished in 2.616 second(s)
+
+
+>>>>> Starting GridSearchCV AdaBoostClassifier...
+Fitting 2 folds for each of 25 candidates, totalling 50 fits
+
+HPO grid search: make_scorer(roc_auc_score, response_method='predict_proba', multi_class=ovr), 2 splits
+Best parameters: {'learning_rate': 1.0, 'n_estimators': 150}
+
+================
+AdaBoostClassifier, optimized for roc_auc_ovr
+              precision    recall  f1-score   support
+
+           0      0.931     0.955     0.943       598
+           1      0.856     0.792     0.823       202
+
+    accuracy                          0.914       800
+   macro avg      0.894     0.873     0.883       800
+weighted avg      0.912     0.914     0.913       800
+
+[[571  27]
+ [ 42 160]]
+ accuracy: 0.914
+ balanced accuracy: 0.873
+ roc_auc_ovr best_score_: 0.971
+AdaBoostClassifier feature_importances_ [('avg_class_frequency_current_month', 0.26237198854705474), ('lifetime', 0.241629159201969), ('avg_class_frequency_total', 0.15802422807244257), ('age', 0.10169192525262957), ('month_to_end_contract', 0.08932121612074413), ('avg_additional_charges_total', 0.08297307156912992), ('contract_period', 0.037312429371726165), ('group_visits', 0.013162936142916568), ('near_location', 0.00800137553666316), ('promo_friends', 0.005511670184724211), ('gender', 0.0), ('partner', 0.0), ('phone', 0.0)]
+ Finished in 2.886 second(s)
+
+[Finished in 9.5s]
