@@ -1,0 +1,10 @@
+services:
+   
+  prediction:
+    env_file:
+      - .env
+    build:
+      context: .
+    volumes:
+      - ./data:/app/data
+    container_name: prediction-service
