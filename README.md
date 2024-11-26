@@ -110,6 +110,15 @@ As a result you will see log similar to [model-training-log.txt](/model-training
 
 ![Training prediction models in dockerl](/screenshots/model-training-2.png)
 
+In addition to metrics of tuned models you can see feature_importances (quite different for each model):
+
+- RandomForestClassifier feature_importances_ [('lifetime', 0.27698838996957376), ('avg_class_frequency_current_month', 0.17358035523748414), ('avg_class_frequency_total', 0.13059232764546072), ('age', 0.12877142441676973), ('avg_additional_charges_total', 0.08603065630582445), ('month_to_end_contract', 0.07262567617283212), ('contract_period', 0.06602939753555674), ('group_visits', 0.014815990416864253), ('promo_friends', 0.011526449594906153), ('gender', 0.011358829946767927), ('partner', 0.010688387221120352), ('near_location', 0.010252701970989684), ('phone', 0.006739413565849998)]
+- AdaBoostClassifier feature_importances_ [('avg_class_frequency_current_month', 0.26237198854705474), ('lifetime', 0.241629159201969), ('avg_class_frequency_total', 0.15802422807244257), ('age', 0.10169192525262957), ('month_to_end_contract', 0.08932121612074413), ('avg_additional_charges_total', 0.08297307156912992), ('contract_period', 0.037312429371726165), ('group_visits', 0.013162936142916568), ('near_location', 0.00800137553666316), ('promo_friends', 0.005511670184724211), ('gender', 0.0), ('partner', 0.0), ('phone', 0.0)]
+- DecisionTreeClassifier feature_importances_ [('lifetime', 0.5123700362634527), ('month_to_end_contract', 0.1602593408280512), ('avg_class_frequency_current_month', 0.1366187653879427), ('age', 0.11076769351855814), ('avg_class_frequency_total', 0.07056176451506908), ('avg_additional_charges_total', 0.005709560461072738), ('contract_period', 0.0024638175534776353), ('promo_friends', 0.001071569554200247), ('phone', 0.0001774519181755518), ('gender', 0.0), ('near_location', 0.0), ('partner', 0.0), ('group_visits', 0.0)]
+
+And also you can see timings of each model training.
+
+
 ### :mag_right: Test prediction service
 
 1. **Run `bash test-api.sh` to execute test calls to prediction web service**. If you run it locally, execute `python test-api.py`. 
