@@ -29,5 +29,10 @@ def predict():
     return calculate_prediction(object)
 
 
+@app.route('/', methods=['GET'])
+def root():
+    return {'Prediction':'works!'}
+
+
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=PORT)
