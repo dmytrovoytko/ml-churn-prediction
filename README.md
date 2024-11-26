@@ -87,13 +87,13 @@ You can find results in [model-training-log.txt](/model-training-log.txt)
 1. **Fork this repo on GitHub**. Or use `git clone https://github.com/dmytrovoytko/ml-churn-prediction.git` command to clone it locally, then `ml-churn-prediction`.
 2. Create GitHub CodeSpace from the repo.
 3. **Start CodeSpace**
-4. **Go to the app directory** `ml-churn-prediction`
+4. **Go to the prediction service directory** `prediction_service`
 5. The app works in docker container, **you don't need to install packages locally to test it**.
 6. Only if you want to develop the project locally, you can run `pip install -r requirements.txt` (project tested on python 3.11/3.12).
 
 ### :arrow_forward: Train model
 
-1. **Run `bash deploy.sh` to build and start app container**. The dataset is quite small, required libraries too, so it should be ready to serve quickly enough. When new log messages stop appearing, press enter to return to a command line.
+1. **Run `bash deploy.sh` to build and start app container**. The dataset is quite small, required libraries too, so it should be ready to serve quickly enough. When new log messages stop appearing, press enter to return to a command line (service will keep running in background).
 
 ![docker-compose up](/screenshots/docker-compose-00.png)
 
@@ -103,7 +103,11 @@ When you see these messages app is ready
 
 2. To reproduce training process run `bash train.sh` which starts model training in docker container. If you run it locally, execute `python train_model.py`. 
 
+![Training prediction models in dockerl](/screenshots/model-training-1.png)
+
 As a result you will see log similar to [model-training-log.txt](/model-training-log.txt)
+
+![Training prediction models in dockerl](/screenshots/model-training-2.png)
 
 ### :mag_right: Test prediction service
 
@@ -111,10 +115,27 @@ As a result you will see log similar to [model-training-log.txt](/model-training
 
 ![Testing prediction service in dockerl](/screenshots/prediction-service-test-1.png)
 
-![Testing prediction service in dockerl](/screenshots/prediction-service-test-dataset-1.png)
-
 
 ### :inbox_tray: Deployment
 
 As application is fully containerized, it can be deployed on any virtual machine (AWS, Azure, GCP).
 
+
+### :stop_sign: Stop all containers
+
+Run `docker compose down` in command line to stop all running services.
+
+Don't forget to remove downloaded images if you experimented with project locally! Use `docker images` to list all images and then `docker image rm ...` to remove those you don't need anymore.
+
+
+## Support
+
+🙏 Thank you for your attention and time!
+
+- If you experience any issue while following this instruction (or something left unclear), please add it to [Issues](/issues), I'll be glad to help/fix. And your feedback, questions & suggestions are welcome as well!
+- Feel free to fork and submit pull requests.
+
+If you find this project helpful, please ⭐️star⭐️ my repo 
+https://github.com/dmytrovoytko/ml-churn-prediction to help other people discover it 🙏
+
+Made with ❤️ in Ukraine 🇺🇦 Dmytro Voytko

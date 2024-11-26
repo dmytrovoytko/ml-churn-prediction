@@ -98,7 +98,7 @@ def train_model(df, params, random_state=42):
 
         if SAVE_MODEL:
             os.makedirs(MODEL_DIR, exist_ok=True)
-            filename = f'{MODEL_DIR}{MODEL_NAME}'
+            filename = f'{MODEL_DIR}{classifier_name}.pkl'
             pickle.dump(best_classifier, open(filename, 'wb'))
         return best_classifier, best_params, key_metric1, key_metric2
 
