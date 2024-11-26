@@ -90,6 +90,7 @@ You can find results in [model-training-log.txt](/model-training-log.txt)
 4. **Go to the prediction service directory** `prediction_service`
 5. The app works in docker container, **you don't need to install packages locally to test it**.
 6. Only if you want to develop the project locally, you can run `pip install -r requirements.txt` (project tested on python 3.11/3.12).
+7. If you want to rerun [Jupyter notebook](/churn-prediction-3.ipynb) you will probably need to install packages using `requirements.txt` which contains all required libraries with their versions.
 
 ### :arrow_forward: Train model
 
@@ -119,6 +120,12 @@ As a result you will see log similar to [model-training-log.txt](/model-training
 ### :inbox_tray: Deployment
 
 As application is fully containerized, it can be deployed on any virtual machine (AWS, Azure, GCP).
+
+- [docker-compose.yaml](/prediction_service/docker-compose.yaml)
+- [Dockerfile](/prediction_service/Dockerfile)
+- [app.py](/prediction_service/app.py) - Flask web app which loads best model and processes received data to predict churn. By default it serves on port 5555. You can change it in `settings.py` and `Dockerfile`.
+
+If you want to develop the project, pay attention to `settings.py`, it contains key parameters.
 
 
 ### :stop_sign: Stop all containers
