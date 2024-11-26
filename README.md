@@ -60,7 +60,8 @@ I started with 3 classifiers used for prediction - linear regression and 2 tree-
 
 Also I experimented with hyperparameter tuning to improve metrics.
 
-Comparison of modeling in jupyter notebook:
+**Comparison of performance** for models trained in Jupyter notebook:
+
 ![Models comparison](/EDA/model-comparison.png)
 
 ## Python scripts for data pre-processing and training
@@ -76,9 +77,9 @@ You can find results in [model-training-log.txt](/model-training-log.txt)
 ## 🚀 Instructions to reproduce
 
 - [Setup environment](#hammer_and_wrench-setup-environment)
-- [Train model](#train-model)
-- [Test prediction service](#test-prediction-service)
-- [Deployment](#deployment)
+- [Train model](#arrow_forward-train-model)
+- [Test prediction service](#mag_right-test-prediction-service)
+- [Deployment](#inbox_tray-deployment)
 
 
 ### :hammer_and_wrench: Setup environment
@@ -90,7 +91,7 @@ You can find results in [model-training-log.txt](/model-training-log.txt)
 5. The app works in docker container, **you don't need to install packages locally to test it**.
 6. Only if you want to develop the project locally, you can run `pip install -r requirements.txt` (project tested on python 3.11/3.12).
 
-### Train model
+### :arrow_forward: Train model
 
 1. **Run `bash deploy.sh` to build and start app container**. The dataset is quite small, required libraries too, so it should be ready to serve quickly enough. When new log messages stop appearing, press enter to return to a command line.
 
@@ -104,7 +105,7 @@ When you see these messages app is ready
 
 As a result you will see log similar to [model-training-log.txt](/model-training-log.txt)
 
-### Test prediction service
+### :mag_right: Test prediction service
 
 1. **Run `bash test-api.sh` to execute test calls to prediction web service**. If you run it locally, execute `python test-api.py`. 
 
@@ -113,7 +114,7 @@ As a result you will see log similar to [model-training-log.txt](/model-training
 ![Testing prediction service in dockerl](/screenshots/prediction-service-test-dataset-1.png)
 
 
-### Deployment
+### :inbox_tray: Deployment
 
 As application is fully containerized, it can be deployed on any virtual machine (AWS, Azure, GCP).
 
