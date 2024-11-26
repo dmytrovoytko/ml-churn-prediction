@@ -128,7 +128,7 @@ As application is fully containerized, it can be deployed on any virtual machine
 If you want to develop the project, pay attention to `settings.py`, it contains key parameters.
 
 I deployed this service on [huggingface](https://dmytrovoytko-ml-churn-prediction.hf.space/) via Huggingface docker space.
-It is live, you can test it executing `python test-api1.py` - just target url changed comparing to `test-api.sh` mentioned above.
+It is live, you can test it executing `python test-api1.py` - just target URL changed comparing to `test-api.py` mentioned above.
 
 ![Testing prediction service on cloud deploymentl](/screenshots/prediction-service-test-2.png)
 
@@ -142,8 +142,8 @@ To deploy dockerized app on Huggingface you need to
 ![Huggingface settingsl](/screenshots/huggingface-1.png)
 
 5. Wait till app is built and started
-6. Use specific url for your application using template `https://{username}-{space-name}.hf.space/` (without port!)
-7. Finally test prediction service using `python test-api1.py`
+6. Use specific URL for your application using template: `https://{username}-{space-name}.hf.space/` (without port!). So for prediction service it will be with `/predict/` at the end - this (https://dmytrovoytko-ml-churn-prediction.hf.space/predict), which is used in `test-api1.py`
+7. Finally test prediction service using `python test-api1.py` (screenshot below shows server logs of testing requests)
 
 ![Huggingface deployment logl](/screenshots/huggingface-2.png)
 
