@@ -29,7 +29,7 @@ This is my Midterm project in [Machine Learning ZoomCamp](https://github.com/Dat
 - financial: contract_period, avg_additional_charges_total, month_to_end_contract, lifetime, avg_class_frequency_total, avg_class_frequency_current_month
 - labels: churn - 1 if customer unsubscribed
 
-## EDA
+## 📊 EDA
 
 Dataset is well prepared - without duplicates and null values.
 You can explore detailed information in [notebook](/churn-prediction-3.ipynb)
@@ -46,7 +46,7 @@ Key features distribution:
 Correlation matrix:
 ![Correlation matrix](/EDA/correlation-heatmap.png)
 
-## Model training
+## 🎛 Model training
 
 I started with 3 classifiers used for prediction - linear regression and 2 tree-based:
 - LogisticRegression
@@ -66,6 +66,7 @@ Comparison of modeling in jupyter notebook:
 train_model.py includes a more advanced hyperparameter tuning for all models (even 4, + DecisionTreeClassifier)
 I used GridSearchCV and measured time for training each classifier.
 You can find results in [model-training-log.txt](/model-training-log.txt)
+
 
 ## 🚀 Instructions to reproduce
 
