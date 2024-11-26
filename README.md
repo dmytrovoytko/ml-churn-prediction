@@ -127,6 +127,11 @@ As application is fully containerized, it can be deployed on any virtual machine
 
 If you want to develop the project, pay attention to `settings.py`, it contains key parameters.
 
+I deployed this service on [huggingface](https://dmytrovoytko-ml-churn-prediction.hf.space/) via Huggingface docker space.
+It is live, you can test it using `test-api1.py` - just target url changed comparing to `test-api.sh` mentioned above.
+
+
+
 
 ### :stop_sign: Stop all containers
 
