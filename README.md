@@ -2,7 +2,7 @@
 
 Midterm project for DataTalks.Club Machine Learning ZoomCamp`24:
 
-![ML project Churn prediction](/EDA/model-comparison.png)
+![ML project Churn prediction](/EDA/feature-importance.png)
 
 ## Problem statement
 
@@ -57,4 +57,15 @@ Also I experimented with hyperparameter tuning to improve metrics.
 
 Comparison of modeling in jupyter notebook:
 ![Models comparison](/EDA/model-comparison.png)
+
+## Python scripts for data pre-processing and training
+
+- [preprocess.py](/prediction_service/preprocess.py)
+- [train_model.py](/prediction_service/train_model.py)
+
+train_model.py includes a more advanced hyperparameter tuning for all models (even 4, + DecisionTreeClassifier)
+I used GridSearchCV and measured time for training each classifier.
+You can find results in [model-training-log.txt](/model-training-log.txt)
+
+## 🚀 Instructions to reproduce
 
