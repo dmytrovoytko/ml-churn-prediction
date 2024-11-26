@@ -35,16 +35,16 @@ Dataset is well prepared - without duplicates and null values.
 You can explore detailed information in [notebook](/churn-prediction-3.ipynb)
 
 Overview distribution of all features:
-[Overview distribution of all features](/EDA/distribution-high-view.jpg)
+![Overview distribution of all features](/EDA/distribution-high-view.jpg)
 
 Churn rate distribution:
-[Churn rate distribution](/EDA/churn-distribution-overview.png)
+![Churn rate distribution](/EDA/churn-distribution-overview.png)
 
 Key features distribution:
-[Key features distribution](/EDA/feature-importance.png)
+![Key features distribution](/EDA/feature-importance.png)
 
 Correlation matrix:
-[Correlation matrix](/EDA/correlation-heatmap.png)
+![Correlation matrix](/EDA/correlation-heatmap.png)
 
 ## Model training
 
